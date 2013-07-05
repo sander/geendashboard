@@ -2,3 +2,7 @@
 *~
 .DS_Store
 *.swp
+*.sqlite3
+env
+distribute_setup.py
+distribute-*.tar.gz

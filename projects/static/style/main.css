@@ -12,8 +12,12 @@ body {
   background: #fefefe;
 }
 
-h1 {
+body > h1 {
   margin: 36px 0;
+}
+
+nav {
+  margin: 18px 0;
 }
 
 a {

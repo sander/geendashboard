@@ -10,7 +10,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'geendashboard.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', projects.views.ProjectList.as_view()),
+    url(r'^$', projects.views.ProjectList.as_view(), name='project-list'),
+    url(r'^project/(?P<slug>[-_\w]+)/$', projects.views.ProjectDetail.as_view(), name='project-detail'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav>
+  <p><a href="{% url 'project-list' %}">Back to project list</a></p>
+  </nav>
+  <article>
+    <h1>Project: {{ project.name }}</h1>
+    <p>{{ project.goal }}</p>
+    <p>Start: {{ project.start }}</p>
+    <p>End: {{ project.end }}</p>
+    <p>Due: {{ project.due }}</p>
+  </article>
+{% endblock %}

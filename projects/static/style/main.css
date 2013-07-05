@@ -1,0 +1,21 @@
+* {
+  font-family: sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+
+body {
+  margin: 36px;
+  background: #fefefe;
+}
+
+h1 {
+  margin: 36px 0;
+}
+
+a {
+  text-decoration: underline;
+}

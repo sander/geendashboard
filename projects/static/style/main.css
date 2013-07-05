@@ -12,7 +12,7 @@ body {
   background: #fefefe;
 }
 
-body > h1 {
+body > header {
   margin: 36px 0;
 }
 

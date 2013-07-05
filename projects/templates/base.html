@@ -6,6 +6,13 @@
 <meta charset=utf-8>
 <link rel=stylesheet href="{% static "style/main.css" %}">
 
-<h1>geendashboard</h1>
+<header>
+  <h1>geendashboard</h1>
+  {% if user.is_authenticated %}
+    <p>{{ user }} <a href="{% url 'logout' %}">Log out</a></p>
+  {% else %}
+    <p><a href="{% url 'login' %}">Log in</a></p>
+  {% endif %}
+</header>
 
 {% block content %}{% endblock %}

@@ -17,6 +17,7 @@ curl -O http://python-distribute.org/distribute_setup.py
 sudo python distribute_setup.py
 sudo easy_install pip
 pip install pytz
+pip install requests
 cd $PATH_TO_DJANGO
 python setup.py install
 cd $PATH_TO_GEENDASHBOARD

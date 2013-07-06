@@ -16,5 +16,7 @@ urlpatterns = patterns('',
     url(r'^account/log-in$', 'django.contrib.auth.views.login', name='login'),
     url(r'^account/log-out$', 'django.contrib.auth.views.logout', { 'next_page': '/' }, name='logout'),
 
+    url(r'^account/services/wunderlist$', 'wunderlist.views.settings', name='wunderlist-settings'),
+
     url(r'^admin/', include(admin.site.urls)),
 )

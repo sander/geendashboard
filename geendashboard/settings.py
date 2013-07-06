@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projects',
+    'wunderlist',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,3 +85,6 @@ STATIC_URL = '/static/'
 
 
 LOGIN_REDIRECT_URL = 'project-list'
+
+
+WUNDERLIST_API = 'https://api.wunderlist.com/'

@@ -9,7 +9,11 @@
 <header>
   <h1>geendashboard</h1>
   {% if user.is_authenticated %}
-    <p>{{ user }} <a href="{% url 'logout' %}">Log out</a></p>
+    <p>
+      {{ user }}
+      <a href="{% url 'logout' %}">Log out</a>
+      <a href="{% url 'wunderlist-settings' %}">Wunderlist settings</a>
+    </p>
   {% else %}
     <p><a href="{% url 'login' %}">Log in</a></p>
   {% endif %}

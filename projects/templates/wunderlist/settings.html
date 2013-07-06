@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav>
+    <p><a href="{% url 'project-list' %}">Back to project list</a></p>
+  </nav>
+
+  {% if form %}
+    <form method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <p><button>Log in</button></p>
+    </form>
+  {% else %}
+    <p>You are logged in to Wunderlist as <b>{{ account.email }}</b>.</p>
+    <form method="POST">
+      {% csrf_token %}
+      <p><button>Log out</button></p>
+    </form>
+  {% endif %}
+{% endblock %}

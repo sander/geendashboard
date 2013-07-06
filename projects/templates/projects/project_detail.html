@@ -10,7 +10,16 @@
     <p>Start: {{ project.start }}</p>
     <p>End: {{ project.end }}</p>
     <p>Due: {{ project.due }}</p>
-    <p><a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach Wunderlist items]</a>
+    <p><a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach new Wunderlist]</a></p>
+    {% if project.tasklist %}
+      <form action="{% url 'wunderlist-attach' slug=project.slug %}" method="POST">
+        {% csrf_token %}
+        <p>
+          <input type="hidden" name="list" value="{{ project.tasklist.wunderlist_id }}">
+          <button>Refresh current Wunderlist</button>
+        </p>
+      </form>
+    {% endif %}
 
     {% if project.tasklist %}
       <h2>Tasks</h2>

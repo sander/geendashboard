@@ -43,6 +43,7 @@ def attach(request, slug):
         project=project,
         account=account,
     )
+    task_list.wunderlist_id = request.POST['list']
     task_list.tasks = json.dumps(items, indent=2)
     task_list.save()
     return redirect(project.get_absolute_url())

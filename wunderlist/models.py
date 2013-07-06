@@ -28,6 +28,7 @@ class Account(Model):
 
 class TaskList(Model):
   project = OneToOneField(Project, unique=True)
+  wunderlist_id = CharField(max_length=255)
   account = ForeignKey(Account)
   updated = DateTimeField(auto_now=True)
 

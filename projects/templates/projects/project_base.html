@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <article class="project">
+    <header>
+      <h1><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h1>
+    </header>
+    <div class="content">
+      {% block project_content %}{% endblock %}
+    </div>
+  </article>
+{% endblock %}

@@ -1,7 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'projects/project_base.html' %}
 
-{% block content %}
-  <h1><a href="{{ project.get_absolute_url }}">{{ project }}</a></h1>
+{% block project_content %}
   <form method="POST">
     {% csrf_token %}
     <p>
@@ -10,6 +9,6 @@
           <option value="{{ list.id }}">{{ list.title }}</option>
         {% endfor %}
       </select>
-      <button>Attach</button>
+      <button>Attach and share</button>
   </form>
 {% endblock %}

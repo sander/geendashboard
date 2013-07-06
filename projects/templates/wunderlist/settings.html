@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <nav>
-    <p><a href="{% url 'project-list' %}">Back to project list</a></p>
-  </nav>
-
   {% if form %}
     <form method="POST">
       {% csrf_token %}

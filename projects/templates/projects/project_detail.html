@@ -1,37 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'projects/project_base.html' %}
 
-{% block content %}
-  <nav>
-    <p><a href="{% url 'project-list' %}">Back to project list</a></p>
-  </nav>
-  <article>
-    <h1>Project: {{ project.name }}</h1>
-    <p>{{ project.goal }}</p>
+{% block project_content %}
+  <p>{{ project.goal }}</p>
+  {% if project.start %}
     <p>Start: {{ project.start }}</p>
+  {% endif %}
+  {% if project.end %}
     <p>End: {{ project.end }}</p>
+  {% endif %}
+  {% if project.due %}
     <p>Due: {{ project.due }}</p>
-    <p><a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach new Wunderlist]</a></p>
-    {% if project.tasklist %}
-      <form action="{% url 'wunderlist-attach' slug=project.slug %}" method="POST">
-        {% csrf_token %}
-        <p>
-          <input type="hidden" name="list" value="{{ project.tasklist.wunderlist_id }}">
-          <button>Refresh current Wunderlist</button>
-        </p>
-      </form>
-    {% endif %}
+  {% endif %}
 
-    {% if project.tasklist %}
-      <h2>Tasks</h2>
+  {% if project.tasklist %}
+    <section class="tasks">
       <ul>
         {% for task in project.tasklist.get_tasks %}
-          <li>
+        <li {% if task.completed_by_id %}class="completed"{% endif %}>
             <input type="checkbox" disabled {% if task.completed_by_id %}checked{% endif %}>
             {{ task.title }}
           </li>
         {% endfor %}
       </ul>
-    {% endif %}
+    </section>
+  {% endif %}
 
-  </article>
+  <form action="{% url 'wunderlist-attach' slug=project.slug %}" method="POST">
+    {% csrf_token %}
+    <p>
+      <a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach new Wunderlist]</a>
+      {% if project.tasklist %}
+        <input type="hidden" name="list" value="{{ project.tasklist.wunderlist_id }}">
+        <button>Refresh current Wunderlist</button>
+      {% endif %}
+    </p>
+  </form>
 {% endblock %}

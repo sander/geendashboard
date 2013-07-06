@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db.models import *
+import json
 import requests
 
 from projects.models import *
@@ -26,7 +27,7 @@ class Account(Model):
     return 'Wunderlist account for %s' % self.email
 
 class TaskList(Model):
-  project = ForeignKey(Project, unique=True)
+  project = OneToOneField(Project, unique=True)
   account = ForeignKey(Account)
   updated = DateTimeField(auto_now=True)
 
@@ -34,3 +35,8 @@ class TaskList(Model):
 
   def __str__(self):
     return 'Task list for %s' % self.project
+
+  def get_tasks(self):
+    tasks = [task for task in json.loads(self.tasks) if not task['parent_id']]
+    tasks.sort(key=lambda task: (not not task['completed_by_id'], float(task['position'])))
+    return tasks

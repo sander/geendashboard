@@ -11,5 +11,18 @@
     <p>End: {{ project.end }}</p>
     <p>Due: {{ project.due }}</p>
     <p><a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach Wunderlist items]</a>
+
+    {% if project.tasklist %}
+      <h2>Tasks</h2>
+      <ul>
+        {% for task in project.tasklist.get_tasks %}
+          <li>
+            <input type="checkbox" disabled {% if task.completed_by_id %}checked{% endif %}>
+            {{ task.title }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
   </article>
 {% endblock %}

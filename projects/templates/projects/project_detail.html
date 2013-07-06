@@ -10,5 +10,6 @@
     <p>Start: {{ project.start }}</p>
     <p>End: {{ project.end }}</p>
     <p>Due: {{ project.due }}</p>
+    <p><a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach Wunderlist items]</a>
   </article>
 {% endblock %}

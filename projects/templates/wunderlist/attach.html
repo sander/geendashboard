@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1><a href="{{ project.get_absolute_url }}">{{ project }}</a></h1>
+  <form method="POST">
+    {% csrf_token %}
+    <p>
+      <select name="list">
+        {% for list in lists %}
+          <option value="{{ list.id }}">{{ list.title }}</option>
+        {% endfor %}
+      </select>
+      <button>Attach</button>
+  </form>
+{% endblock %}

@@ -12,6 +12,7 @@ urlpatterns = patterns('',
 
     url(r'^$', projects.views.ProjectList.as_view(), name='project-list'),
     url(r'^project/(?P<slug>[-_\w]+)/$', projects.views.ProjectDetail.as_view(), name='project-detail'),
+    url(r'^project/(?P<slug>[-_\w]+)/wunderlist$', 'wunderlist.views.attach', name='wunderlist-attach'),
 
     url(r'^account/log-in$', 'django.contrib.auth.views.login', name='login'),
     url(r'^account/log-out$', 'django.contrib.auth.views.logout', { 'next_page': '/' }, name='logout'),

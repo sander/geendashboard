@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.db.models import *
 
 class Project(Model):
@@ -16,6 +17,9 @@ class Project(Model):
 
   def __str__(self):
     return self.name
+
+  def get_absolute_url(self):
+    return reverse('project-detail', args=(self.slug,))
 
 class Role(Model):
   name = CharField(max_length=20)

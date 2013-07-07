@@ -37,7 +37,7 @@
         {% for task in project.tasklist.get_tasks %}
         <li {% if task.completed_by_id %}class="completed"{% endif %}>
             <input type="checkbox" disabled {% if task.completed_by_id %}checked{% endif %}>
-            {{ task.title }}
+            {{ task.title|urlizetrunc:30 }}
           </li>
         {% endfor %}
       </ul>

@@ -32,7 +32,7 @@ def settings(request):
 
 @login_required
 def attach(request, slug):
-  project = get_object_or_404(Project, slug=slug)
+  project = get_object_or_404(Project, slug=slug, involvement__user=request.user)
   try:
     account = Account.objects.get(user=request.user)
   except Account.DoesNotExist:

@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'projects',
     'wunderlist',
+    'profiles',
 )
 
 MIDDLEWARE_CLASSES = (

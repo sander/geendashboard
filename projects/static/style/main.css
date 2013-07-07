@@ -39,6 +39,14 @@ article.project header h1 a {
   line-height: 36px;
   text-decoration: none;
 }
+article.project ul.involved {
+  list-style: none;
+  margin: 18px 0;
+}
+article.project ul.involved li {
+  display: inline-block;
+  margin-right: 18px;
+}
 article.project section.tasks {
   margin-top: 18px;
 }
@@ -57,4 +65,12 @@ article.project section.tasks li input {
   float: left;
   margin-left: -18px;
   margin-top: 3px;
+}
+
+span.user span.name {
+  font-weight: bold;
+}
+span.user span.avatar img {
+  vertical-align: middle;
+  border-radius: 16px;
 }

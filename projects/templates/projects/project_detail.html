@@ -31,8 +31,9 @@
     <p>Due: {{ project.due }}</p>
   {% endif %}
 
-  {% if project.tasklist %}
-    <section class="tasks">
+  <section class="tasks">
+    <h1>Tasks</h1>
+    {% if project.tasklist %}
       <ul>
         {% for task in project.tasklist.get_tasks %}
         <li {% if task.completed_by_id %}class="completed"{% endif %}>
@@ -41,17 +42,17 @@
           </li>
         {% endfor %}
       </ul>
-    </section>
-  {% endif %}
+    {% endif %}
 
-  <form action="{% url 'wunderlist-attach' slug=project.slug %}" method="POST">
-    {% csrf_token %}
-    <p>
-      <a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach new Wunderlist]</a>
-      {% if project.tasklist %}
-        <input type="hidden" name="list" value="{{ project.tasklist.wunderlist_id }}">
-        <button>Refresh current Wunderlist</button>
-      {% endif %}
-    </p>
-  </form>
+    <form action="{% url 'wunderlist-attach' slug=project.slug %}" method="POST">
+      {% csrf_token %}
+      <p>
+        <a href="{% url 'wunderlist-attach' slug=project.slug %}">[+ Attach new Wunderlist]</a>
+        {% if project.tasklist %}
+          <input type="hidden" name="list" value="{{ project.tasklist.wunderlist_id }}">
+          <button>Refresh current Wunderlist</button>
+        {% endif %}
+      </p>
+    </form>
+  </section>
 {% endblock %}

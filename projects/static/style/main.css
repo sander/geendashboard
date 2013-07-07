@@ -50,6 +50,24 @@ article.project ul.involved li {
 article.project section.tasks {
   margin-top: 18px;
 }
+article.project section.tasks h1 {
+  cursor: pointer;
+  text-decoration: underline;
+}
+article.project section.tasks h1:before {
+  content: '+ ';
+}
+article.project section.tasks.open h1:before {
+  content: '− ';
+}
+article.project section.tasks.open ul,
+article.project section.tasks.open form {
+  display: block;
+}
+article.project section.tasks ul,
+article.project section.tasks form {
+  display: none;
+}
 article.project section.tasks ul {
   list-style: none;
 }

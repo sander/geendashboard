@@ -1,0 +1,9 @@
+{% load gravatar %}
+
+<span class="user">
+  <span class="avatar"><img src="{% gravatar_url user.email %}"></span>
+  <span class="name">{{ user.first_name|default:user }}</span>
+  {% if role %}
+    <span class="role">({{ role }})</span>
+  {% endif %}
+</span>

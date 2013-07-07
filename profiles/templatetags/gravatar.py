@@ -14,7 +14,7 @@ class GravatarUrlNode(template.Node):
     except template.VariableDoesNotExist:
       return ''
 
-    default = ''
+    default = 'mm'
     size = 32
 
     return 'http://www.gravatar.com/avatar/%s?%s' % (

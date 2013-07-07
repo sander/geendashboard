@@ -1,17 +1,11 @@
 {% extends 'projects/project_container.html' %}
 
-{% load gravatar %}
-
 {% block project_content %}
   {% if project.involvement_set.all.count %}
     <ul class="involved">
       {% for involvement in project.involvement_set.all %}
         <li>
-          <span class="user">
-            <span class="avatar"><img src="{% gravatar_url involvement.user.email %}"></span>
-            <span class="name">{{ involvement.user }}</span>
-            <span class="role">({{ involvement.role }})</span>
-          </span>
+          {% include 'profiles/user.html' with user=involvement.user role=involvement.role %}
         </li>
       {% endfor %}
     </ul>

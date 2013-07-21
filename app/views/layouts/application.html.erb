@@ -16,6 +16,7 @@
         <%= current_user.uid %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>
         <%= link_to 'Roles', roles_path %>
+        <%= link_to 'Wunderlist', wunderlist_accounts_path %>
       </p>
     <% else %>
       <form id='persona_form' action='/auth/browser_id/callback' method='GET'>

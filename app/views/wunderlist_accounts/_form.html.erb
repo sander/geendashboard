@@ -1,0 +1,32 @@
+<%= form_for @account do |f| %>
+  <% if @failed %>
+    <section class="errors">
+      <p>Failed to sign in using this email and password.</p>
+    </section>
+  <% end %>
+
+  <% if @account.errors.any? %>
+    <section class="errors">
+      <h1><%= pluralize @account.errors.count, 'error' %></h1>
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit 'Sign in to Wunderlist' %>
+  </p>
+<% end %>

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :involvements
+  has_one :wunderlist_account
 
   def self.create_with_omniauth(auth)
     create! do |user|

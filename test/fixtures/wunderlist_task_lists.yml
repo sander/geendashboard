@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 
+  id: MyString
+  wunderlist_account_id: 
+
+two:
+  project_id: 
+  id: MyString
+  wunderlist_account_id: 

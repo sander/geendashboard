@@ -11,10 +11,11 @@
 
   <header>
     <h1><%= link_to 'geendashboard', root_url %></h1>
-    <% if current_user %>
+    <% unless current_user.nil? %>
       <p>
         <%= current_user.uid %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>
+        <%= link_to 'Roles', roles_path %>
       </p>
     <% else %>
       <form id='persona_form' action='/auth/browser_id/callback' method='GET'>

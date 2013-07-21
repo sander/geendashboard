@@ -2,27 +2,11 @@
   <header>
     <h1><%= link_to "Project: #{item.name}", item %></h1>
   </header>
-
-  <ul class="involved">
-    <% item.involvements.each do |involvement| %>
-      <li>
-        <li>
-          <span class="user">
-            <span class="avatar"><%= image_tag avatar_url involvement.user %></span>
-            <span class="name"><%= involvement.user.name %></span>
-            <span class="role">(<%= involvement.role.name %>)</span>
-          </span>
-        </li>
-      </li>
-    <% end %>
-  </ul>
-
   <div class="content">
     <% if item.goal %>
       <p><%= item.goal %></p>
     <% end %>
   </div>
-
   <nav>
     <p>
       <%= link_to 'Edit', edit_project_path(item) %>

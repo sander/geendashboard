@@ -1,0 +1,11 @@
+<h1>Roles</h1>
+
+<ul>
+  <% @roles.each do |role| %>
+    <li>
+      <%= render 'form', role: role %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render 'form', role: @role %>

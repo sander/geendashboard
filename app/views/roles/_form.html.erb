@@ -1,0 +1,24 @@
+<%= form_for role, namespace: role.id do |f| %>
+  <% if @role.errors.any? %>
+    <section class="errors">
+      <h1><%= pluralize @role.errors.count, 'error' %></h1>
+      <ul>
+        <% @role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <p>
+    <%= f.text_field :name %>
+
+    <%= f.check_box :can_write %>
+    <%= f.label :can_write %>
+
+    <%= f.submit %>
+
+    <%= link_to 'Destroy', role_path(role), method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>

@@ -1,3 +1,30 @@
 <%= render 'form' %>
 
+<h2>Involvements</h2>
+<ul>
+  <% @project.involvements.each do |involvement| %>
+    <li>
+      <%= involvement.user.email %> (<%= involvement.role.name %>)
+      <%= link_to 'Delete', [@project, involvement], method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<%= form_for [@project, @project.involvements.build] do |f| %>
+  <fieldset>
+    <legend>New involvement</legend>
+    <p>
+      <%= f.label :user_id %>
+      <%= f.collection_select :user_id, User.all, :id, :name %>
+    </p>
+    <p>
+      <%= f.label :role_id %>
+      <%= f.collection_select :role_id, Role.all, :id, :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  </fieldset>
+<% end %>
+
 <%= link_to 'Back', @project %>

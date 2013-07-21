@@ -1,0 +1,12 @@
+<h1>Attach task list</h1>
+
+<%= form_for @list, url: project_task_list_path(@project) do |f| %>
+  <p>
+    List:
+    <%= select_tag :list_id, options_for_select(@options) %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

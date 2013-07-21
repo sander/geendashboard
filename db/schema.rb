@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130721212134) do
+ActiveRecord::Schema.define(version: 20130721232625) do
 
   create_table "involvements", force: true do |t|
     t.integer  "user_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20130721212134) do
     t.integer  "wunderlist_account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "tasks"
   end
 
   add_index "wunderlist_task_lists", ["project_id"], name: "index_wunderlist_task_lists_on_project_id"

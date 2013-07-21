@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.project .tasks').each ->
+    tasks = $ @
+    completed = tasks.find('li.completed').length
+    total = tasks.find('li').length
+    tasks.find('h1').click(->
+      tasks.toggleClass 'open'
+    ).get(0).innerHTML += " (#{completed}/#{total})"

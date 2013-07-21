@@ -12,6 +12,7 @@ Geendashboard::Application.routes.draw do
 
   resources :projects do
     resources :involvements
+    resource :task_list
   end
 
   resources :roles

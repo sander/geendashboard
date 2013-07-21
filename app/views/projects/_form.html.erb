@@ -1,0 +1,36 @@
+<%= form_for @project do |f| %>
+  <% if @project.errors.any? %>
+    <section class="errors">
+      <h1><%= pluralize @project.errors.count, 'error' %></h1>
+      <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :goal %>
+    <%= f.text_area :goal %>
+  </p>
+
+  <p>
+    <%= f.check_box :visible %>
+    <%= f.label :visible %>
+  </p>
+
+  <p>
+    <%= f.check_box :active %>
+    <%= f.label :active %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

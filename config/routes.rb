@@ -7,6 +7,8 @@ Geendashboard::Application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'auth/:provider/callback' => 'sessions#create'
+  delete 'auth' => 'sessions#destroy', as: 'sign_out'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

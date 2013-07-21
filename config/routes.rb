@@ -2,18 +2,14 @@ Geendashboard::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'projects#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
   get 'auth/:provider/callback' => 'sessions#create'
   delete 'auth' => 'sessions#destroy', as: 'sign_out'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :projects do
     resources :involvements
   end
@@ -32,12 +28,6 @@ Geendashboard::Application.routes.draw do
   #     collection do
   #       get 'sold'
   #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
   #   end
 
   # Example resource route with more complex sub-resources:

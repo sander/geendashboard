@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    if current_user
+      @projects = current_user.projects
+    end
   end
 
   def show
@@ -29,6 +31,8 @@ class ProjectsController < ApplicationController
     @project = Project.new project_params
 
     if @project.save
+      role = Role.find_or_create_by name: 'owner'
+      involvement = @project.involvements.create user: current_user, role: role
       redirect_to @project
     else
       render 'new'

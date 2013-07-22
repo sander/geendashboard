@@ -15,8 +15,10 @@
       <p>
         <%= current_user.uid %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>
-        <%= link_to 'Roles', roles_path %>
-        <%= link_to 'Wunderlist', wunderlist_accounts_path %>
+        <% unless current_user.roles.where.not(name: 'client').empty? %>
+          <%= link_to 'Roles', roles_path %>
+          <%= link_to 'Wunderlist', wunderlist_accounts_path %>
+        <% end %>
       </p>
     <% else %>
       <form id='persona_form' action='/auth/browser_id/callback' method='GET'>

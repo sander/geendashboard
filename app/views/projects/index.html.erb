@@ -1,3 +1,5 @@
 <%= render partial: 'item', collection: @projects %>
 
-<p><%= link_to 'New project', new_project_path %></p>
+<% if current_user %>
+  <p><%= link_to 'New project', new_project_path %></p>
+<% end %>

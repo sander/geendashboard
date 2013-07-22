@@ -1,0 +1,11 @@
+<article class="property" style="background-color: <%= item.color %>">
+  <h1>
+    <a href="<%= item.url %>">
+      <%= item.name %>
+    </a>
+  </h1>
+
+  <p class="edit">
+    <%= link_to 'Edit', edit_property_path(item) %>
+  </p>
+</article>

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130721232625) do
+ActiveRecord::Schema.define(version: 20130722204541) do
+
+  create_table "accesses", force: true do |t|
+    t.integer  "property_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accesses", ["property_id"], name: "index_accesses_on_property_id"
+  add_index "accesses", ["user_id"], name: "index_accesses_on_user_id"
 
   create_table "involvements", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +40,14 @@ ActiveRecord::Schema.define(version: 20130721232625) do
     t.text     "goal"
     t.boolean  "visible"
     t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

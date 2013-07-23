@@ -21,7 +21,11 @@ Geendashboard::Application.routes.draw do
 
   resources :wunderlist_accounts
 
-  resources :users
+  resources :users do
+    member do
+      post 'message' => 'users#message'
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do

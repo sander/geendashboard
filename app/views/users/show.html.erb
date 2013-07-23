@@ -1,2 +1,21 @@
 <h1><%= @user.name %></h1>
-<p><span class="avatar"><%= image_tag avatar_url(@user, 256) %></span></p>
+
+<p>
+  <span class="avatar">
+    <%= image_tag avatar_url(@user, 256) %>
+  </span>
+</p>
+
+<% if @message %>
+  <p><%= @message %></p>
+<% end %>
+
+<%= form_tag({ action: 'message' }, method: :post) do |f| %>
+  <p>
+    <%= label_tag :message %>
+    <%= text_area_tag :message %>
+  </p>
+  <p>
+    <%= submit_tag 'Send message' %>
+  </p>
+<% end %>

@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @project = Project.find params[:id]
 
     if @project.update project_params
-      redirect_to @project
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
     if @project.save
       role = Role.find_or_create_by name: 'owner'
       involvement = @project.involvements.create user: current_user, role: role
-      redirect_to @project
+      redirect_to root_path
     else
       render 'new'
     end
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
     @project = Project.find params[:id]
     @project.destroy
 
-    redirect_to projects_path
+    redirect_to root_path
   end
 
   private

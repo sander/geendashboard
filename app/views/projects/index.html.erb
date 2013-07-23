@@ -1,6 +1,8 @@
 <%= render partial: 'item', collection: @projects %>
 
-<%= render partial: 'properties/item', collection: @properties %>
+<section id="properties">
+  <%= render partial: 'properties/item', collection: @properties %>
+</section>
 
 <% if current_user %>
   <p><%= link_to 'New project', new_project_path %></p>

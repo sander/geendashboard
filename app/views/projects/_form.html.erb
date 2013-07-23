@@ -12,7 +12,12 @@
 
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, list: 'wunderlist_lists' %>
+    <datalist id="wunderlist_lists">
+      <% @lists && @lists.each do |list| %>
+        <option value="<%= list %>">
+      <% end %>
+    </datalist>
   </p>
 
   <p>

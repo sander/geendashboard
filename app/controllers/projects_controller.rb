@@ -22,6 +22,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+
+    if current_user.wunderlist_account
+      @lists = current_user.wunderlist_account.lists.map do |list|
+        list['title']
+      end
+    end
   end
 
   def create

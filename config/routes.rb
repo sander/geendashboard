@@ -21,6 +21,8 @@ Geendashboard::Application.routes.draw do
 
   resources :wunderlist_accounts
 
+  resources :users
+
   # Example resource route with options:
   #   resources :products do
   #     member do

@@ -8,9 +8,10 @@
       <li>
         <li>
           <span class="user">
-            <span class="avatar"><%= image_tag avatar_url involvement.user %></span>
-            <span class="name"><%= involvement.user.name %></span>
-            <span class="role">(<%= involvement.role.name %>)</span>
+            <%= link_to user_url involvement.user do %>
+              <span class="avatar"><%= image_tag avatar_url involvement.user %></span>
+            <% end %>
+            <span class="role"><%= involvement.role.name %></span>
           </span>
         </li>
       </li>
@@ -24,9 +25,9 @@
   </div>
 
   <section class="tasks">
-    <h1>Tasks</h1>
-
     <% if item.wunderlist_task_list %>
+      <h1>Tasks</h1>
+
       <ul>
         <% item.wunderlist_task_list.tasks.each do |task| %>
           <li <% if task['completed_by_id'] %>class="completed"<% end %>>

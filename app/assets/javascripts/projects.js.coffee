@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'DOMContentLoaded page:change', ->
   $('.project .tasks').each ->
     tasks = $ @
     completed = tasks.find('li.completed').length

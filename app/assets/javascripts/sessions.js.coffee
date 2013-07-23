@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'DOMContentLoaded page:change', ->
   $('#persona_form').submit ->
     input = $('input[name=assertion]')
     unless input.val()

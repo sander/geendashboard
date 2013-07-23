@@ -5,4 +5,4 @@ $(document).on 'DOMContentLoaded page:change', ->
     total = tasks.find('li').length
     tasks.find('h1').click(->
       tasks.toggleClass 'open'
-    ).get(0).innerHTML += " (#{completed}/#{total})"
+    ).text("Tasks (#{completed}/#{total})")

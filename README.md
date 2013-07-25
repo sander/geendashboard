@@ -1,6 +1,6 @@
 # geendashboard
 
-To download and run, do:
+To set up and run, do:
 
     cd geendashboard
     bundle

@@ -17,7 +17,7 @@ class TaskListsController < ApplicationController
     @list.tasks = current_user.wunderlist_account.items(id).to_json
     @list.save
 
-    redirect_to @project
+    redirect_to root_path
   end
 
   def create

@@ -1,0 +1,12 @@
+<article class="doc">
+  <h1><%= @doc.title %></h1>
+  <p>
+    <span class="avatar"><%= image_tag avatar_url @doc.user %>
+    created <%= @doc.created_at %>
+    updated <%= @doc.updated_at %>
+  </p>
+
+  <pre><%= @doc.body %></pre>
+</article>
+
+<p><%= link_to 'Back', docs_path %>

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :involvements
+  has_many :docs
   has_many :projects, through: :involvements
   has_many :roles, through: :involvements
   has_one :wunderlist_account

@@ -1,7 +1,4 @@
 Geendashboard::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   root 'projects#index'
 
   get 'auth/:provider/callback' => 'sessions#create'
@@ -26,6 +23,8 @@ Geendashboard::Application.routes.draw do
       post 'message' => 'users#message'
     end
   end
+
+  resources :docs
 
   # Example resource route with options:
   #   resources :products do

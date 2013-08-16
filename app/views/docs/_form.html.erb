@@ -1,0 +1,26 @@
+<%= form_for @doc do |f| %>
+  <% if @doc.errors.any? %>
+    <section class="errors">
+      <h1><%= pluralize @doc.errors.count, 'error' %></h1>
+      <ul>
+        <% @doc.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

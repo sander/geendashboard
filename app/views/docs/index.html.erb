@@ -1,0 +1,12 @@
+<h1>Docs</h1>
+
+<% @docs.each do |doc| %>
+  <a href="<%= url_for doc %>">
+    <article class="doc">
+      <h1><%= doc.title %></h1>
+      <p><span class="avatar"><%= image_tag avatar_url doc.user %> <%= doc.updated_at %></p>
+    </article>
+  </a>
+<% end %>
+
+<p><%= link_to 'Create doc', new_doc_path %></p>

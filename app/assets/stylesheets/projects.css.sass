@@ -1,0 +1,72 @@
+@import '_config'
+
+article.project
+  padding: $unit
+  background: #fefefe
+  position: relative
+  border-bottom: 1px solid #ccc
+  header h1
+    font-size: 22px
+    line-height: 2 * $unit
+    text-decoration: none
+    font-family: 'Roboto Slab'
+    font-weight: 300
+  ul.involved
+    @include small
+    position: absolute
+    top: 0
+    right: 0
+    list-style: none
+    margin: $unit
+    li
+      display: inline-block
+      .role
+        width: 0
+        overflow: hidden
+        display: inline-block
+        transition: width .1s
+        text-overflow: ellipsis
+        cursor: default
+      &:hover .role
+        width: 50px
+  .content
+    font-family: 'Roboto Slab'
+    font-weight: 400
+    color: #666
+  section.tasks
+    margin-top: 18px
+    h1
+      cursor: pointer
+      text-decoration: underline
+      &:before
+        content: '+ '
+    ul, form
+      display: none
+    &.open
+      h1:before
+        content: '− '
+      ul, form
+        display: block
+    ul
+      list-style: none
+      li
+        margin-left: 18px
+        padding: 3px 0
+        &.completed
+          color: #999
+          text-decoration: line-through
+        input
+          float: left
+          margin-left: -18px
+          margin-top: 3px
+  form + p a, nav a
+    color: #ccc
+    text-decoration: none
+    font-size: 13px
+    font-weight: 700
+    float: right
+    padding: $unit / 2
+    margin-top: -$unit
+    text-transform: lowercase
+    &:hover
+      color: #aaa

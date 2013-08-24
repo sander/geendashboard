@@ -5,6 +5,8 @@
 </section>
 
 <% if current_user %>
-  <p><%= link_to 'New project', new_project_path %></p>
-  <p><%= link_to 'New property', new_property_path %></p>
+  <nav>
+    <p><%= link_to 'New project', new_project_path %></p>
+    <p><%= link_to 'New property', new_property_path %></p>
+  </nav>
 <% end %>

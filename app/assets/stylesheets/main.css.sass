@@ -20,30 +20,36 @@ body, a
 header#site
   background: #111
   position: relative
-  height: 2 * $unit
   text-transform: lowercase
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: $left_bar
+  font-size: 11px
   h1
-    line-height: 2 * $unit
-    margin-left: $unit
     font-weight: normal
+    font-size: 11px
+    padding: $unit / 4
   p, a
     color: #ddd
     text-decoration: none
   p
-    float: right
-    margin-top: -$unit * 2
-    margin-right: $unit
     color: #aaa
   p a
     display: inline-block
     height: 2 * $unit
-    padding: 0 $unit / 2
-    vertical-align: baseline-middle
-    line-height: 2 * $unit
-  p a:first-child
-    margin-left: $unit / 2
+    padding: $unit / 4
   a:hover
     color: #fff
+
+#content
+  position: absolute
+  left: $left_bar
+  right: 0
+  top: 0
+  bottom: 0
+  overflow: auto
 
 body > nav
   margin: $unit

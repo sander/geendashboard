@@ -10,10 +10,12 @@
 <body>
 
   <header id="site">
-    <h1><%= link_to 'geendashboard', root_url %></h1>
+    <h1><%= link_to 'Home', root_url %></h1>
     <% unless current_user.nil? %>
       <p>
-        <%= current_user.uid %>
+        <%= link_to user_url current_user do %>
+          <span class="avatar"><%= image_tag avatar_url current_user %></span>
+        <% end %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>
         <% unless current_user.roles.where.not(name: 'client').empty? %>
           <%= link_to 'Docs', docs_path %>
@@ -24,12 +26,14 @@
     <% else %>
       <form id='persona_form' action='/auth/browser_id/callback' method='GET'>
         <input type='hidden' name='assertion'/>
-        <button type='submit'>Login with BrowserID</button>
+        <button type='submit'>Sign in</button>
       </form>
     <% end %>
   </header>
 
+  <div id="content">
 <%= yield %>
+  </div>
 
 </body>
 </html>
